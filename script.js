@@ -115,17 +115,17 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "recuerdos",
-      foto: "imagenes/foto2.jpg",
+      foto: "Imagenes/foto2.jpg",
       texto: "Momentos bonitos ✨"
     },
     {
       id: "animalitos",
-      foto: "imagenes/foto3.jpg",
+      foto: "Imagenes/foto3.jpg",
       texto: "Siempre juntitos 💗"
     },
     {
       id: "musica",
-      foto: "imagenes/foto4.jpg",
+      foto: "Imagenes/foto4.jpg",
       texto: "Nuestra canción ♫"
     }
   ];
