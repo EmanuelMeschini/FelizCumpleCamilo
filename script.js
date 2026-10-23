@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const seccionesPolaroid = [
     {
       id: "inicio",
-      foto: "imagenes/foto1.jpg",
+      foto: "Imagenes/foto1.jpg",
       texto: "Un recuerdo ♡"
     },
     {
