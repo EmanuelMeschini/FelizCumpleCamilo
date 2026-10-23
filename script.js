@@ -124,12 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "animalitos",
-      foto: "Imagenes/foto3.jpg",
+      foto: "Imagenes/foto7.jpg",
       texto: "Siempre juntitos 💗"
     },
     {
       id: "musica",
-      foto: "Imagenes/foto4.jpg",
+      foto: "Imagenes/foto8.jpg",
       texto: "Nuestra canción ♫"
     }
   ];
