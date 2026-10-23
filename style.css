@@ -803,6 +803,138 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  
+/* ========================================
+   VISOR DE FOTOS Y POLAROIDS AMPLIADAS
+======================================== */
+
+.visor-fotos {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  background: rgba(38, 20, 42, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  cursor: zoom-out;
+}
+
+/* Mostrar el visor cuando se abre una foto */
+.visor-fotos.visible {
+  display: flex;
+}
+
+/* Fotografía ampliada */
+#foto-ampliada {
+  display: block;
+  max-width: min(90vw, 900px);
+  max-height: 85vh;
+
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  background: #fff;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+  cursor: default;
+
+  animation: aparecer-foto 0.25s ease-out;
+}
+
+/* X rosita para cerrar */
+.cerrar-foto {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  padding: 0;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+  background: #ff8fbd;
+  color: #fff;
+
+  font-size: 32px;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 143, 189, 0.4);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cerrar-foto:hover {
+  background: #f45c9a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 143, 189, 0.6);
+}
+
+.cerrar-foto:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Las Polaroids invitan a hacer clic */
+.polaroids-lateral img,
+.galeria-fotos .foto img {
+  cursor: zoom-in;
+}
+
+@keyframes aparecer-foto {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 650px) {
+  .visor-fotos {
+    padding: 14px;
+  }
+
+  #foto-ampliada {
+    max-width: 94vw;
+    max-height: 78vh;
+    padding: 6px;
+  }
+
+  .cerrar-foto {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 29px;
+  }
+}
+
 }
 
 
