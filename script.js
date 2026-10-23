@@ -110,12 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const seccionesPolaroid = [
     {
       id: "inicio",
-      foto: "Imagenes/foto1.jpg",
+      foto: "Imagenes/foto5.jpg",
       texto: "Un recuerdo ♡"
     },
     {
       id: "recuerdos",
-      foto: "Imagenes/foto2.jpg",
+      foto: "Imagenes/foto6.jpg",
       texto: "Momentos bonitos ✨"
     },
     {
