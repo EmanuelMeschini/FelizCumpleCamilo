@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const $ = (selector, parent = document) =>
     parent.querySelector(selector);
@@ -7,17 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const $$ = (selector, parent = document) =>
     Array.from(parent.querySelectorAll(selector));
 
-  /* ========================================
-     1. SOBRE Y CARTA
-  ======================================== */
-
+  // 1. SOBRE Y CARTA
   const sobre = $("#sobre");
   const botonAbrir = $("#boton-abrir");
 
   function alternarSobre(evento) {
     if (!sobre) return;
 
-    // Evita que un clic dentro de la carta vuelva a cerrarla.
     if (
       evento?.target instanceof Element &&
       evento.target.closest(".carta-interior") &&
@@ -36,18 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
       botonAbrir.setAttribute("aria-expanded", String(abierto));
     }
 
-    if (abierto) {
-      lanzarLluvia(35);
-    }
+    if (abierto) lanzarLluvia(35);
   }
 
-  // El sobre responde al clic en su superficie.
   sobre?.addEventListener("click", alternarSobre);
 
-  // El botón está fuera del sobre: no genera doble clic.
   botonAbrir?.addEventListener("click", (evento) => {
     evento.stopPropagation();
-
     if (!sobre) return;
 
     const abierto = sobre.classList.toggle("abierto");
@@ -61,11 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (abierto) lanzarLluvia(35);
   });
 
-
-  /* ========================================
-     2. LLUVIA DE CORAZONES Y ANIMALITOS
-  ======================================== */
-
+  // 2. LLUVIA DE CORAZONES Y ANIMALITOS
   const contenedorLluvia = $("#lluvia-animales");
 
   const emojis = [
@@ -80,17 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const particula = document.createElement("span");
 
       particula.className = "particula";
-
       particula.textContent =
         emojis[Math.floor(Math.random() * emojis.length)];
 
       particula.style.left = `${Math.random() * 100}%`;
       particula.style.fontSize = `${14 + Math.random() * 20}px`;
-      particula.style.animationDuration =
-        `${3 + Math.random() * 4}s`;
-
-      particula.style.animationDelay =
-        `${Math.random() * 1.5}s`;
+      particula.style.animationDuration = `${3 + Math.random() * 4}s`;
+      particula.style.animationDelay = `${Math.random() * 1.5}s`;
 
       contenedorLluvia.appendChild(particula);
 
@@ -102,11 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  /* ========================================
-     3. POLAROIDS LATERALES
-  ======================================== */
-
+  // 3. POLAROIDS LATERALES
   const seccionesPolaroid = [
     {
       id: "inicio",
@@ -132,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   seccionesPolaroid.forEach((dato, indice) => {
     const seccion = document.getElementById(dato.id);
-
     if (!seccion) return;
 
     const polaroid = document.createElement("div");
@@ -144,16 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
     polaroid.className = `polaroids-lateral ${lado}`;
 
     const imagen = document.createElement("img");
-
     imagen.src = dato.foto;
     imagen.alt = dato.texto;
     imagen.loading = "lazy";
     imagen.tabIndex = 0;
     imagen.setAttribute("role", "button");
-    imagen.setAttribute(
-      "aria-label",
-      `Ampliar foto: ${dato.texto}`
-    );
+    imagen.setAttribute("aria-label", `Ampliar foto: ${dato.texto}`);
 
     const pie = document.createElement("p");
     pie.textContent = dato.texto;
@@ -179,23 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
       polaroid.classList.add("visible");
     }
 
-    // También permite ampliar las fotos con el teclado.
     imagen.addEventListener("keydown", (evento) => {
-      if (
-        evento.key === "Enter" ||
-        evento.key === " "
-      ) {
+      if (evento.key === "Enter" || evento.key === " ") {
         evento.preventDefault();
         abrirFoto(imagen);
       }
     });
   });
 
-
-  /* ========================================
-     4. VISOR DE FOTOS AMPLIADAS
-  ======================================== */
-
+  // 4. VISOR DE FOTOS AMPLIADAS
   const visor = $("#visor-fotos");
   const fotoAmpliada = $("#foto-ampliada");
   const botonCerrarFoto = $("#cerrar-foto");
@@ -210,10 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fotoAmpliada.src = imagen.currentSrc || imagen.src;
     fotoAmpliada.alt = imagen.alt || "Fotografía de recuerdo";
 
-    // La clase coincide con el CSS: .visor-fotos.visible
     visor.classList.add("visible");
     visor.setAttribute("aria-hidden", "false");
-
     document.body.style.overflow = "hidden";
 
     botonCerrarFoto?.focus();
@@ -224,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     visor.classList.remove("visible");
     visor.setAttribute("aria-hidden", "true");
-
     document.body.style.overflow = "";
 
     fotoAmpliada.removeAttribute("src");
@@ -238,16 +199,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Abrir las fotos de la galería.
   $$(".galeria-fotos .foto").forEach((tarjeta) => {
     tarjeta.addEventListener("click", () => {
       const imagen = $("img", tarjeta);
-
       if (imagen) abrirFoto(imagen);
     });
   });
 
-  // Abrir las Polaroids laterales.
   document.addEventListener("click", (evento) => {
     if (!(evento.target instanceof Element)) return;
 
@@ -255,22 +213,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ".polaroids-lateral img"
     );
 
-    if (imagenPolaroid) {
-      abrirFoto(imagenPolaroid);
-    }
+    if (imagenPolaroid) abrirFoto(imagenPolaroid);
   });
 
-  // Cerrar con la X.
   botonCerrarFoto?.addEventListener("click", cerrarFoto);
 
-  // Cerrar al tocar el fondo, pero no la foto.
   visor?.addEventListener("click", (evento) => {
-    if (evento.target === visor) {
-      cerrarFoto();
-    }
+    if (evento.target === visor) cerrarFoto();
   });
 
-  // Cerrar con Escape.
   document.addEventListener("keydown", (evento) => {
     if (
       evento.key === "Escape" &&
@@ -280,25 +231,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-  /* ========================================
-     5. MENSAJES SORPRESA
-  ======================================== */
-
+  // 5. MENSAJES SORPRESA
   const botonSorpresa = $("#boton-sorpresa");
   const mensajeSorpresa = $("#mensaje-sorpresa");
 
   const mensajes = [
     "Recordatorio importante: sos una persona muy especial y merecés cosas hermosas. 💗",
-
     "El comité de animalitos confirma que hoy tenés permiso para recibir todos los mimos del mundo. 🐰",
-
     "Ojalá pudiera darte un abrazo enorme en este momento. Te mando uno virtual, pero multiplicado por mil. 🫂",
-
     "Que nunca te falten motivos para reír, canciones para cantar y personas que te quieran bonito. ✨",
-
     "Notificación oficial: alguien te quiere muchísimo y preparó todo esto pensando en vos. 💌",
-
     "Tu misión de hoy es disfrutar, sonreír y dejar que te mimen un poquito más de lo habitual. 🎀"
   ];
 
@@ -310,9 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nuevoMensaje;
 
     do {
-      nuevoMensaje = Math.floor(
-        Math.random() * mensajes.length
-      );
+      nuevoMensaje = Math.floor(Math.random() * mensajes.length);
     } while (
       mensajes.length > 1 &&
       nuevoMensaje === ultimoMensaje
@@ -326,11 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lanzarLluvia(25);
   });
 
-
-  /* ========================================
-     6. MENSAJE FINAL
-  ======================================== */
-
+  // 6. MENSAJE FINAL
   const botonFinal = $("#boton-final");
   const mensajeFinal = $("#mensaje-final");
 
@@ -338,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mensajeFinal) return;
 
     const mostrar = mensajeFinal.hidden;
-
     mensajeFinal.hidden = !mostrar;
 
     botonFinal.textContent = mostrar
@@ -355,11 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-  /* ========================================
-     7. REPRODUCTOR MUSICAL
-  ======================================== */
-
+  // 7. REPRODUCTOR MUSICAL
   const audio = $("#audio");
   const pistas = $$(".pista");
   const estadoMusica = $("#estado-musica");
@@ -372,10 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pista.classList.toggle("reproduciendo", activa);
 
       const icono = $(".pista-play", pista);
-
-      if (icono) {
-        icono.textContent = activa ? "♫" : "▶";
-      }
+      if (icono) icono.textContent = activa ? "♫" : "▶";
     });
   }
 
@@ -384,7 +312,6 @@ document.addEventListener("DOMContentLoaded", () => {
       pista.classList.remove("reproduciendo");
 
       const icono = $(".pista-play", pista);
-
       if (icono) icono.textContent = "▶";
     });
 
@@ -404,86 +331,58 @@ document.addEventListener("DOMContentLoaded", () => {
           estadoMusica.textContent =
             "Esta canción todavía no tiene un archivo asignado. ♡";
         }
-
         return;
       }
 
-      // Si se pulsa la canción actual, pausar o reanudar.
-      if (
-        audio.dataset.rutaActual === ruta &&
-        audio.getAttribute("src")
-      ) {
-        if (audio.paused) {
-          try {
-            await audio.play();
+      const mismaCancion =
+        audio.getAttribute("src") === ruta ||
+        audio.src.endsWith(ruta);
 
-            actualizarPistaActiva(pista);
-            disco?.classList.add("girando");
-
-            if (estadoMusica) {
-              estadoMusica.textContent =
-                `Sonando: ${titulo} — ${artista} ♫`;
-            }
-          } catch {
-            if (estadoMusica) {
-              estadoMusica.textContent =
-                "No se pudo reproducir. Revisá que el MP3 exista.";
-            }
-          }
-        } else {
-          audio.pause();
-          disco?.classList.remove("girando");
-
-          if (estadoMusica) {
-            estadoMusica.textContent = `En pausa: ${titulo} ♡`;
-          }
-        }
-
+      if (mismaCancion && !audio.paused) {
+        audio.pause();
         return;
       }
 
-      audio.pause();
-      audio.src = ruta;
-      audio.dataset.rutaActual = ruta;
-      audio.load();
-
-      limpiarPistaActiva();
+      if (!mismaCancion) {
+        audio.src = ruta;
+        audio.load();
+      }
 
       try {
         await audio.play();
-
         actualizarPistaActiva(pista);
-        disco?.classList.add("girando");
 
         if (estadoMusica) {
-          estadoMusica.textContent =
-            `Sonando: ${titulo} — ${artista} ♫`;
+          estadoMusica.textContent = artista
+            ? `Reproduciendo: ${titulo} — ${artista} ♫`
+            : `Reproduciendo: ${titulo} ♫`;
         }
-      } catch {
+      } catch (error) {
         limpiarPistaActiva();
 
         if (estadoMusica) {
           estadoMusica.textContent =
-            "No se pudo reproducir. Revisá el nombre del archivo y la carpeta musica.";
+            "No se pudo reproducir la canción. Revisá el nombre y la ubicación del archivo. ♡";
         }
+
+        console.error("Error al reproducir audio:", error);
       }
     });
-  });
-
-  audio?.addEventListener("pause", () => {
-    disco?.classList.remove("girando");
   });
 
   audio?.addEventListener("play", () => {
     disco?.classList.add("girando");
   });
 
+  audio?.addEventListener("pause", () => {
+    disco?.classList.remove("girando");
+  });
+
   audio?.addEventListener("ended", () => {
     limpiarPistaActiva();
 
     if (estadoMusica) {
-      estadoMusica.textContent =
-        "Canción terminada ♡ Elegí otra si querés.";
+      estadoMusica.textContent = "La canción terminó. Elegí otra ♡";
     }
   });
 
@@ -492,10 +391,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (estadoMusica) {
       estadoMusica.textContent =
-        "No se encontró el archivo de audio. Revisá el nombre y la carpeta musica.";
+        "No se encontró el archivo de audio. Revisá la carpeta Musica y el nombre del archivo. ♡";
     }
   });
-
 });
 
 
