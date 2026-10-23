@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "musica",
       foto: "Imagenes/foto8.jpg",
-      texto: "Nuestra canción ♫"
+      texto: "Pileta 🏊"
     }
   ];
 
