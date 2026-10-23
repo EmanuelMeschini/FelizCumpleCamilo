@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     "El comité de animalitos confirma que hoy tenés permiso para recibir todos los mimos del mundo. 🐰",
 
-    "Ojalá pudiera darte un abrazo enorme en este momento. Te mando uno virtual, pero multiplicado por mil. 🫂",
+    "Ojalá pudiera darte un abrazo enorme en este momento. Te mando uno virtual, pero multiplicado por mil. 🌹",
 
     "Que nunca te falten motivos para reír, canciones para cantar y personas que te quieran bonito. ✨",
 
