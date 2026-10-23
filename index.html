@@ -4,252 +4,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff0f6">
+  <meta name="theme-color" content="#fff4f8">
   <title>Para Camilo 💗</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
+
   <div id="lluvia-animales" aria-hidden="true"></div>
 
+  <!-- PORTADA Y SOBRE -->
   <header class="portada seccion" id="inicio">
-    <div class="contenido-portada">
-      <p class="etiqueta">UN REGALITO HECHO CON AMOR</p>
-      <h1>Feliz cumple, <span>Camilo</span> 💗</h1>
-      <p class="subtitulo">
-        Para mi persona favorita, en un rinconcito hecho especialmente para vos.
-      </p>
+    <p class="etiqueta">UN REGALITO HECHO CON MUCHO CARIÑO</p>
+    <h1>¡Feliz cumple, Camilo! 💗</h1>
+    <p class="subtitulo">Una pequeña sorpresa para una persona muy especial.</p>
+    <p>Hay algo que quiero que leas…</p>
 
-      <div class="sobre-contenedor">
-        <div class="sobre" id="sobre">
-          <div class="carta-interior" id="carta">
-            <p class="carta-etiqueta">PARA CAMILO ♡</p>
-            <h2>Unas palabritas para vos</h2>
-            <p>
-              Espero que tengas un día hermoso y que seas muy feliz. 
-              Aunque hoy no pueda estar ahí para darte un abrazo, quería hacerte este regalito para sacarte una sonrisa.
-            </p>
-            <p>
-              Gracias por compartir tantos momentos lindos conmigo. 
-              Me alegra mucho tenerte en mi vida y espero que se te vengan cosas hermosas.
+    <button class="sobre-cerrado" id="sobre-cerrado" type="button" aria-label="Abrir la carta de cumpleaños">
+      <span class="sobre-solapa" aria-hidden="true">✉️</span>
+      <span class="sobre-corazon" aria-hidden="true">💗</span>
+      <span class="sobre-texto">Tocá el sobre para abrir tu carta</span>
+    </button>
 
-              
-            </p>
-            <p>
-              Te mando un abrazo enorme a la distancia. ¡Te quiero mucho! 🐰🐱💗 
-            </p>
-            <p class="firma">Te quiero muchísimo. 💕</p>
-          </div>
-
-          <div class="sobre-base"></div>
-          <div class="solapa"></div>
-          <div class="sello">♡</div>
-        </div>
-
-        <button id="boton-abrir" class="boton boton-rosa" type="button">
-          Abrir mi cartita 💌
-        </button>
-        <p class="ayuda-sobre">Tocá el sobre para descubrir tu mensaje</p>
-      </div>
-    </div>
+    <span class="decoracion">♡ ✨ ♡</span>
   </header>
 
-  <main>
-    <section class="seccion" id="recuerdos">
-      <div class="contenido">
-        <p class="etiqueta">NUESTROS MOMENTOS</p>
-        <h2>Un pedacito de <span>nosotros</span> 📸</h2>
-        <p class="descripcion">
-          Algunas fotitos que guardan recuerdos lindos. Tocá cualquiera para verla en grande.
-        </p>
+  <!-- CARTA AMPLIADA -->
+  <div class="carta-modal" id="carta-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-carta" aria-hidden="true">
+    <article class="carta-grande">
+      <button class="carta-cerrar" id="carta-cerrar" type="button" aria-label="Cerrar la carta">×</button>
 
-        <div class="galeria-fotos">
-          <button class="foto" type="button" aria-label="Ampliar foto 1">
-            <img src="Imagenes/foto1.jpg" alt="Un recuerdo especial con Cami" loading="lazy">
-            <span>Un recuerdo ♡</span>
-          </button>
+      <h2 id="titulo-carta">Para vos, Cami 💌</h2>
 
-          <button class="foto" type="button" aria-label="Ampliar foto 2">
-            <img src="Imagenes/foto2.jpg" alt="Otro recuerdo especial con Cami" loading="lazy">
-            <span>Un día bonito ✨</span>
-          </button>
+      <p>¡Feliz cumpleaños! 💗</p>
 
-          <button class="foto" type="button" aria-label="Ampliar foto 3">
-            <img src="Imagenes/foto3.jpg" alt="Un momento para recordar" loading="lazy">
-            <span>De esos momentos 💗</span>
-          </button>
+      <p>Quería hacerte un regalito distinto, algo que pudieras guardar y volver a mirar cuando tengas ganas. Por eso preparé esta pequeña página especialmente para vos.</p>
 
-          <button class="foto" type="button" aria-label="Ampliar foto 4">
-            <img src="Imagenes/foto4.jpg" alt="Un recuerdo que quiero guardar" loading="lazy">
-            <span>Siempre en el corazón ♡</span>
-          </button>
-        </div>
-      </div>
-    </section>
+      <p>Gracias por tu amistad, por los momentos compartidos, las risas y por ser esa persona tan especial. Ojalá este nuevo año te traiga un montón de cosas lindas, proyectos que te entusiasmen, abrazos sinceros y muchas razones para sonreír.</p>
 
-    <section class="seccion seccion-animales" id="animalitos">
-      <div class="contenido">
-        <p class="etiqueta">COMUNICADO OFICIAL</p>
-        <h2>El comité de <span>animalitos</span> 🐾</h2>
-        <p class="descripcion">
-          Se reunió una comisión muy importante para desearte un cumpleaños hermoso.
-        </p>
+      <p>Deseo que nunca te falte gente que te quiera bonito, música que te acompañe y pequeños momentos que te hagan feliz. Y cuando los días no sean tan buenos, acordate de que también merecés paciencia, cariño y un abrazo enorme.</p>
 
-        <div class="animales">
-          <article class="animal">
-            <div class="animal-dibujo" aria-hidden="true">🐰</div>
-            <h3>Señor Conejito</h3>
-            <p>Te desea abrazos suaves, días felices y muchas zanahorias.</p>
-          </article>
+      <p>Espero que disfrutes mucho tu día. Te mando un abrazo gigante y todo mi cariño. 🫂✨</p>
 
-          <article class="animal">
-            <div class="animal-dibujo" aria-hidden="true">🐱</div>
-            <h3>Doña Michi</h3>
-            <p>Exige que hoy recibas mimos, regalos y atención ilimitada.</p>
-          </article>
+      <p>Con mucho cariño, <strong>Emanuel</strong> 💗</p>
 
-          <article class="animal">
-            <div class="animal-dibujo" aria-hidden="true">🦘</div>
-            <h3>Señor Canguro</h3>
-            <p>Promete guardar un abrazo gigante en su bolsillito para vos.</p>
-          </article>
-        </div>
-
-        <button class="boton boton-lila" id="boton-sorpresa" type="button">
-          Recibir un mensajito sorpresa 🎁
-        </button>
-        <p id="mensaje-sorpresa" class="mensaje-sorpresa" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="seccion" id="musica">
-      <div class="contenido">
-        <p class="etiqueta">UNA PLAYLIST PARA VOS</p>
-        <h2>Pa vo Camilo <span>Música</span> 🎧</h2>
-        <p class="descripcion">
-          Elegí una canción.
-        </p>
-
-        <div class="reproductor">
-          <div class="disco" aria-hidden="true">♫</div>
-          <p class="reproductor-titulo">Una canción para Cami</p>
-          <p class="reproductor-subtitulo">Elegí tu favorita 💗</p>
-
-          <audio id="audio" preload="metadata"></audio>
-
-          <button class="pista" type="button"
-              data-src="Musica/Yo soy tu amigo fiel.mp3"
-              data-titulo="Yo soy tu amigo fiel"
-              data-artista="Toy Story">
-              <span class="pista-icono">♫</span>
-              <span class="pista-info">
-                <strong>Yo soy tu amigo fiel</strong>
-                <small>Toy Story</small>
-              </span>
-              <span class="pista-play">▶</span>
-            </button>
-
-
-          <div class="pistas">
-            <button class="pista" type="button"
-              data-src="Musica/Perfect.mp3"
-              data-titulo="Perfect"
-              data-artista="One Direction">
-              <span class="pista-icono">♫</span>
-              <span class="pista-info">
-                <strong>Perfect</strong>
-                <small>One Direction</small>
-              </span>
-              <span class="pista-play">▶</span>
-            </button>
-
-
-            <button class="pista" type="button"
-              data-src="Musica/Happy Birthday.mp3"
-              data-titulo="Happy Birthday"
-              data-artista="jsjs">
-              <span class="pista-icono">♫</span>
-              <span class="pista-info">
-                <strong>Happy Birthday</strong>
-                <small>jsjs</small>
-              </span>
-              <span class="pista-play">▶</span>
-            </button>
-
-            <button class="pista" type="button"
-              data-src="Musica/Whoa Hoa Hoa.mp3"
-              data-titulo="Canción Misteriosa"
-              data-artista="?">
-              <span class="pista-icono">♫</span>
-              <span class="pista-info">
-                <strong>Canción Misteriosa</strong>
-                <small>?</small>
-              </span>
-              <span class="pista-play">▶</span>
-            </button>
-          </div>
-
-          <p id="estado-musica" class="estado-musica" aria-live="polite">
-            Todavía no está sonando ninguna canción ♡
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="seccion seccion-final" id="final">
-      <div class="contenido">
-        <div class="corazon-final" aria-hidden="true">♡</div>
-        <p class="etiqueta">Y ANTES DE QUE TE VAYAS...</p>
-        <h2>Un último mensajito <span>para vos</span></h2>
-        <p class="descripcion">
-          Porque un solo feliz cumpleaños no alcanza para decirte todo lo que te extraño y te quiero amiga.
-        </p>
-
-        <button id="boton-final" class="boton boton-rosa" type="button">
-          Tengo una última cosita 💌
-        </button>
-
-        <p id="mensaje-final" class="mensaje-final" aria-live="polite" hidden>
-          Ojalá pudiera darte un abrazo enorme hoy. Mientras tanto, te mando
-          todo mi cariño a través de esta pantallita. Que seas muy feliz,
-          Feliz cumpleaños, Camilo. Te quiero muchísimo. 💗🐰✨
-        </p>
-
-        <p class="despedida">Hecho con mucho amor, especialmente para vos ♡</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Visor de fotos: se cierra con la X, tocando el fondo o con Escape -->
-  <div
-    id="visor-fotos"
-    class="visor-fotos"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Fotografía ampliada"
-    aria-hidden="true"
-  >
-    <button
-      id="cerrar-foto"
-      class="cerrar-foto"
-      type="button"
-      aria-label="Cerrar fotografía"
-    >×</button>
-
-    <img id="foto-ampliada" src="" alt="">
+      <p class="carta-ayuda">Podés cerrar esta carta tocando la X o el espacio oscuro de afuera. ♡</p>
+    </article>
   </div>
 
-  <footer>
-    <p>Para Camilo, con amor infinito 💗</p>
-  </footer>
+  <main>
+
+    <!-- GALERÍA -->
+    <section class="seccion" id="recuerdos">
+      <p class="etiqueta">NUESTROS MOMENTOS</p>
+      <h2>Unos recuerdos bonitos 📸</h2>
+      <p class="texto-seccion">Cada foto guarda un pedacito de una historia que me alegra compartir con vos.</p>
+
+      <div class="galeria-fotos">
+        <button class="foto" type="button">
+          <img src="Imagenes/foto1.jpg" alt="Recuerdo compartido 1">
+          <span>Un recuerdo ♡</span>
+        </button>
+
+        <button class="foto" type="button">
+          <img src="Imagenes/foto2.jpg" alt="Recuerdo compartido 2">
+          <span>Un momento lindo ✨</span>
+        </button>
+
+        <button class="foto" type="button">
+          <img src="Imagenes/foto3.jpg" alt="Recuerdo compartido 3">
+          <span>Siempre juntitos 💗</span>
+        </button>
+
+        <button class="foto" type="button">
+          <img src="Imagenes/foto4.jpg" alt="Recuerdo compartido 4">
+          <span>Para guardar ♡</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SORPRESAS -->
+    <section class="seccion seccion-animales" id="animalitos">
+      <p class="etiqueta">UNA SORPRESITA</p>
+      <h2>El comité de animalitos 🐰</h2>
+      <p>Los animalitos tienen un anuncio importante para vos.</p>
+
+      <div class="animales">
+        <div class="animal">
+          <div class="animal-dibujo">🐰</div>
+          <h3>Un abrazo</h3>
+          <p>Un abrazo virtual para vos.</p>
+        </div>
+
+        <div class="animal">
+          <div class="animal-dibujo">🐱</div>
+          <h3>Mucho cariño</h3>
+          <p>Hoy te toca recibir todo el cariño del mundo.</p>
+        </div>
+
+        <div class="animal">
+          <div class="animal-dibujo">🐥</div>
+          <h3>Un deseo</h3>
+          <p>Que este año venga lleno de cosas lindas.</p>
+        </div>
+      </div>
+
+      <button class="boton boton-rosa" id="boton-sorpresa" type="button">Recibir una sorpresa 💌</button>
+      <p id="mensaje-sorpresa" class="mensaje-sorpresa" hidden></p>
+    </section>
+
+    <!-- MÚSICA -->
+    <section class="seccion" id="musica">
+      <p class="etiqueta">UNA PLAYLIST PARA VOS</p>
+      <h2>Un poquito de música 🎵</h2>
+
+      <div class="reproductor">
+        <div class="disco" aria-hidden="true">♫</div>
+
+        <div class="pistas">
+          <button class="pista" type="button" data-src="Musica/Yo soy tu amigo fiel.mp3" data-titulo="Yo soy tu amigo fiel" data-artista="Toy Story">
+            <span class="pista-play">▶</span>
+            <span class="pista-info">
+              <strong>Yo soy tu amigo fiel</strong>
+              <small>Toy Story</small>
+            </span>
+          </button>
+
+          <button class="pista" type="button" data-src="Musica/Perfect.mp3" data-titulo="Perfect" data-artista="One Direction">
+            <span class="pista-play">▶</span>
+            <span class="pista-info">
+              <strong>Perfect</strong>
+              <small>One Direction</small>
+            </span>
+          </button>
+
+          <button class="pista" type="button" data-src="Musica/Happy Birthday.mp3" data-titulo="Happy Birthday" data-artista="jsjs">
+            <span class="pista-play">▶</span>
+            <span class="pista-info">
+              <strong>Happy Birthday</strong>
+              <small>jsjs</small>
+            </span>
+          </button>
+
+          <button class="pista" type="button" data-src="Musica/Whoa Hoa Hoa.mp3" data-titulo="Whoa Hoa Hoa" data-artista="Canción misteriosa">
+            <span class="pista-play">▶</span>
+            <span class="pista-info">
+              <strong>Whoa Hoa Hoa</strong>
+              <small>Canción misteriosa</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <p id="estado-musica" class="estado-musica" role="status">Elegí una canción para escuchar ♡</p>
+      <audio id="audio" preload="none"></audio>
+    </section>
+
+    <!-- MENSAJE FINAL -->
+    <section class="seccion seccion-final" id="cierre">
+      <p class="etiqueta">Y UNA ÚLTIMA COSITA…</p>
+      <div class="corazon-final">♡</div>
+      <h2>Antes de que te vayas 💗</h2>
+
+      <button class="boton boton-lila" id="boton-final" type="button">Tengo una última cosita 💌</button>
+
+      <p id="mensaje-final" class="mensaje-final" hidden>
+        Que la vida te regale muchísimos motivos para ser feliz. ¡Te quiero mucho, Cami! Feliz cumpleaños. 🐥💗✨
+      </p>
+    </section>
+
+  </main>
+
+  <!-- VISOR DE FOTOS -->
+  <div class="visor-fotos" id="visor-fotos" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+    <button id="cerrar-foto" class="cerrar-foto" type="button" aria-label="Cerrar foto">×</button>
+    <img id="foto-ampliada" alt="">
+  </div>
+
+  <footer>Hecho con cariño para Camilo 💗</footer>
+
 </body>
 </html>
+
 
 
 
