@@ -1,4 +1,3 @@
-
 :root {
   --rosa: #e875a5;
   --rosa-fuerte: #d9508b;
@@ -29,218 +28,80 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
+
 button {
   font: inherit;
 }
 
-button:focus-visible {
+button:focus-visible,
+a:focus-visible {
   outline: 3px solid var(--lila-fuerte);
   outline-offset: 4px;
+}
+
+.seccion {
+  position: relative;
+  padding: 90px 25px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contenedor {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1050px);
+  margin: 0 auto;
+}
+
+.etiqueta {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: var(--rosa-claro);
+  color: var(--rosa-fuerte);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 h1,
 h2,
 h3 {
   font-family: "Playfair Display", serif;
-}
-
-h1,
-h2,
-h3,
-p {
-  overflow-wrap: break-word;
+  line-height: 1.25;
 }
 
 h1 {
-  margin: 12px 0;
+  margin: 15px 0;
   font-size: clamp(2.6rem, 7vw, 5rem);
-  line-height: 1.12;
-}
-
-h1 span,
-h2 span {
-  color: var(--rosa-fuerte);
-  font-style: italic;
 }
 
 h2 {
-  margin: 10px 0 18px;
-  font-size: clamp(2rem, 4.5vw, 3.1rem);
-  line-height: 1.2;
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 h3 {
-  margin: 8px 0;
+  margin-top: 12px;
 }
 
-.seccion {
-  position: relative;
-  isolation: isolate;
-  padding: 95px 24px;
-  text-align: center;
-}
-
-.contenido,
-.contenido-portada {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 1000px);
-  margin: 0 auto;
-}
-
-.portada {
-  display: grid;
-  min-height: 100svh;
-  place-items: center;
-  padding-top: 65px;
-  padding-bottom: 65px;
-  background:
-    radial-gradient(ellipse at 12% 15%, #ffe0ed 0, transparent 36%),
-    radial-gradient(ellipse at 88% 85%, #e9e2ff 0, transparent 35%),
-    var(--rosa-suave);
-}
-
-.etiqueta {
-  margin: 0 0 12px;
-  color: var(--rosa-fuerte);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
-}
-
-.subtitulo,
-.descripcion {
-  width: min(100%, 650px);
-  margin: 0 auto;
-  color: var(--texto-suave);
-  font-size: 1.02rem;
+p {
   line-height: 1.8;
 }
 
-.sobre-contenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 38px;
-  perspective: 1000px;
+.subtitulo {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--texto-suave);
+  font-size: 1rem;
 }
 
-.sobre {
-  position: relative;
-  width: min(340px, 82vw);
-  height: 225px;
-  margin: 10px auto 24px;
-  cursor: pointer;
-  filter: drop-shadow(0 15px 18px rgba(176, 94, 132, 0.16));
-}
-
-.sobre-base {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  border-radius: 7px;
-  background: linear-gradient(140deg, #ffb6d2, #f28eb8);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.sobre-base::before,
-.sobre-base::after {
-  position: absolute;
-  content: "";
-  inset: 0;
-  background: #ffc6dc;
-}
-
-.sobre-base::before {
-  clip-path: polygon(0 0, 50% 55%, 0 100%);
-}
-
-.sobre-base::after {
-  background: #f7a3c5;
-  clip-path: polygon(100% 0, 50% 55%, 100% 100%);
-}
-
-.solapa {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 5;
-  height: 58%;
-  transform-origin: top center;
-  background: #f9b0cd;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transition: transform 0.65s ease;
-}
-
-.sello {
-  position: absolute;
-  top: 44%;
-  left: 50%;
-  z-index: 6;
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  transform: translate(-50%, -50%);
-  border: 3px solid #fff0f6;
-  border-radius: 50%;
-  background: var(--rosa-fuerte);
-  color: white;
-  font-size: 1.8rem;
-  transition: opacity 0.3s ease;
-}
-
-.carta-interior {
-  position: absolute;
-  top: 8px;
-  left: 5%;
-  z-index: 2;
-  width: 90%;
-  height: 210px;
-  overflow-y: auto;
-  padding: 22px 18px;
-  border-radius: 5px;
-  background: #fffdfd;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: transform 0.7s ease, opacity 0.5s ease;
-}
-
-.carta-interior h2 {
-  font-size: 1.45rem;
-}
-
-.carta-interior p {
-  font-size: 0.87rem;
-  line-height: 1.7;
-}
-
-.carta-etiqueta {
+.texto-rosa {
   color: var(--rosa-fuerte);
-  font-size: 0.7rem !important;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.firma {
-  color: var(--rosa-fuerte);
-  font-weight: 700;
-}
-
-.sobre.abierto .solapa {
-  transform: rotateX(180deg);
-  z-index: 1;
-}
-
-.sobre.abierto .carta-interior {
-  z-index: 4;
-  opacity: 1;
-  transform: translateY(-125px);
-}
-
-.sobre.abierto .sello {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .boton {
@@ -278,6 +139,148 @@ h3 {
   color: var(--texto-suave);
   font-size: 0.82rem;
 }
+
+/* PORTADA */
+
+.portada {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 10% 20%, #f1e8ff, transparent 35%),
+    radial-gradient(ellipse at 90% 80%, #ffddea, transparent 35%),
+    #fff8fb;
+}
+
+.portada .contenedor {
+  padding: 35px 0;
+}
+
+.decoracion-portada {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  animation: balanceo 3s ease-in-out infinite;
+}
+
+.portada .subtitulo {
+  margin-bottom: 30px;
+}
+
+.corazon-portada {
+  display: inline-block;
+  color: var(--rosa);
+  animation: latido 1.5s ease-in-out infinite;
+}
+
+/* SOBRE Y CARTA */
+
+.sobre-contenedor {
+  width: min(100%, 450px);
+  margin: 35px auto 25px;
+  perspective: 1000px;
+}
+
+.sobre {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  background: #f4b7d1;
+  box-shadow: 0 15px 35px rgba(170, 94, 132, 0.18);
+  cursor: pointer;
+}
+
+.sobre::before {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 135px solid #f9cfe0;
+  border-right: 50% solid transparent;
+  border-left: 50% solid transparent;
+  content: "";
+}
+
+.sobre::after {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  border-right: 50% solid transparent;
+  border-bottom: 150px solid #eea8c6;
+  border-left: 50% solid transparent;
+  content: "";
+}
+
+.sobre-tapa {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 135px solid #f7c2d8;
+  border-right: 50% solid transparent;
+  border-left: 50% solid transparent;
+  transform-origin: top center;
+  transition: transform 0.6s ease;
+}
+
+.sobre-corazon {
+  position: absolute;
+  z-index: 5;
+  top: 95px;
+  left: 50%;
+  color: #fff;
+  font-size: 2.2rem;
+  transform: translateX(-50%);
+}
+
+.carta-interior {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 8%;
+  left: 8%;
+  height: 225px;
+  padding: 22px 20px;
+  overflow: auto;
+  border-radius: 8px;
+  background: #fffdfd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.7s ease;
+}
+
+.carta-interior h3 {
+  margin: 0 0 12px;
+  color: var(--rosa-fuerte);
+  text-align: center;
+}
+
+.carta-interior p {
+  font-size: 0.9rem;
+}
+
+.sobre.abierto .sobre-tapa {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.sobre.abierto .carta-interior {
+  transform: translateY(-150px);
+}
+
+#boton-abrir {
+  margin-top: 15px;
+}
+
+/* GALERÍA DE RECUERDOS */
 
 #recuerdos {
   background: #fff9fc;
@@ -326,6 +329,8 @@ h3 {
   font-family: "Playfair Display", serif;
   font-size: 0.92rem;
 }
+
+/* COMITÉ DE ANIMALITOS */
 
 .seccion-animales {
   background:
@@ -382,6 +387,12 @@ h3 {
   animation: aparecer 0.4s ease;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+/* REPRODUCTOR MUSICAL */
+
 #musica {
   background: #fffafd;
 }
@@ -396,16 +407,6 @@ h3 {
   box-shadow: var(--sombra);
 }
 
-.disco.girando {
-  animation: girar-disco 4s linear infinite;
-}
-
-@keyframes girar-disco {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .disco {
   display: grid;
   width: 88px;
@@ -418,6 +419,16 @@ h3 {
   color: #a05286;
   font-size: 2.6rem;
   box-shadow: inset 0 0 0 3px white;
+}
+
+.disco.girando {
+  animation: girar-disco 4s linear infinite;
+}
+
+@keyframes girar-disco {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .reproductor-titulo {
@@ -505,6 +516,8 @@ h3 {
   line-height: 1.6;
 }
 
+/* MENSAJE FINAL */
+
 .seccion-final {
   background:
     radial-gradient(ellipse at 85% 20%, #ffe0ee, transparent 36%),
@@ -532,7 +545,8 @@ footer {
   font-size: 0.82rem;
 }
 
-/* Polaroids decorativas laterales */
+/* POLAROIDS DECORATIVAS LATERALES */
+
 .polaroids-lateral {
   position: absolute;
   z-index: 1;
@@ -580,7 +594,8 @@ footer {
   font-size: 0.8rem;
 }
 
-/* Lluvia de corazones y animalitos */
+/* LLUVIA DE CORAZONES Y ANIMALITOS */
+
 #lluvia-animales {
   position: fixed;
   inset: 0;
@@ -604,21 +619,39 @@ footer {
 }
 
 @keyframes balanceo {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-7px) rotate(3deg); }
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(3deg);
+  }
 }
 
 @keyframes latido {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.12); }
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
 }
 
 @keyframes aparecer {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Visor de fotografías ampliadas */
+/* VISOR DE FOTOS AMPLIADAS */
+
 .visor-fotos {
   position: fixed;
   inset: 0;
@@ -637,20 +670,21 @@ footer {
   cursor: zoom-out;
 }
 
-.visor-fotos.activo {
+.visor-fotos.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.visor-fotos img {
+#foto-ampliada {
   display: block;
   max-width: min(90vw, 900px);
   max-height: 82vh;
   width: auto;
   height: auto;
   object-fit: contain;
-  border: 8px solid white;
+  padding: 8px;
+  border: 2px solid white;
   border-radius: 5px;
   background: white;
   box-shadow: 0 12px 45px rgba(0, 0, 0, 0.35);
@@ -662,6 +696,7 @@ footer {
   position: absolute;
   top: 20px;
   right: 25px;
+  z-index: 2;
   display: flex;
   width: 46px;
   height: 46px;
@@ -683,18 +718,30 @@ footer {
   background: #ffb6d5;
 }
 
+.cerrar-foto:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.polaroids-lateral img,
+.galeria-fotos .foto {
+  cursor: zoom-in;
+}
+
 @keyframes aparecer-foto {
   from {
     opacity: 0;
     transform: scale(0.92);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-/* Adaptación a tabletas y teléfonos */
+/* ADAPTACIÓN A TABLETAS Y TELÉFONOS */
+
 @media (max-width: 1050px) {
   .polaroids-lateral {
     width: 110px;
@@ -746,15 +793,18 @@ footer {
     padding: 65px 12px 20px;
   }
 
-  .visor-fotos img {
+  #foto-ampliada {
     max-width: 94vw;
     max-height: 78vh;
-    border-width: 5px;
+    padding: 5px;
   }
 
   .cerrar-foto {
     top: 12px;
     right: 14px;
+    width: 42px;
+    height: 42px;
+    font-size: 29px;
   }
 }
 
@@ -803,138 +853,6 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-/* ========================================
-   VISOR DE FOTOS Y POLAROIDS AMPLIADAS
-======================================== */
-
-.visor-fotos {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  display: none;
-  align-items: center;
-  justify-content: center;
-
-  padding: 24px;
-  background: rgba(38, 20, 42, 0.82);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  cursor: zoom-out;
-}
-
-/* Mostrar el visor cuando se abre una foto */
-.visor-fotos.visible {
-  display: flex;
-}
-
-/* Fotografía ampliada */
-#foto-ampliada {
-  display: block;
-  max-width: min(90vw, 900px);
-  max-height: 85vh;
-
-  width: auto;
-  height: auto;
-  object-fit: contain;
-
-  background: #fff;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 5px;
-
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
-  cursor: default;
-
-  animation: aparecer-foto 0.25s ease-out;
-}
-
-/* X rosita para cerrar */
-.cerrar-foto {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 46px;
-  height: 46px;
-  padding: 0;
-
-  border: 2px solid #fff;
-  border-radius: 50%;
-
-  background: #ff8fbd;
-  color: #fff;
-
-  font-size: 32px;
-  line-height: 1;
-  font-family: Arial, sans-serif;
-
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 143, 189, 0.4);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.cerrar-foto:hover {
-  background: #f45c9a;
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(255, 143, 189, 0.6);
-}
-
-.cerrar-foto:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
-}
-
-/* Las Polaroids invitan a hacer clic */
-.polaroids-lateral img,
-.galeria-fotos .foto img {
-  cursor: zoom-in;
-}
-
-@keyframes aparecer-foto {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Adaptación para celulares */
-@media (max-width: 650px) {
-  .visor-fotos {
-    padding: 14px;
-  }
-
-  #foto-ampliada {
-    max-width: 94vw;
-    max-height: 78vh;
-    padding: 6px;
-  }
-
-  .cerrar-foto {
-    top: 12px;
-    right: 12px;
-    width: 42px;
-    height: 42px;
-    font-size: 29px;
-  }
-}
-
 }
 
 
